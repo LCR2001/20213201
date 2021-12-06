@@ -108,6 +108,7 @@ int output(struct employee data[], int tot_employee) //직원 데이터 출력 �
     printf("이번달도 모두 고생 많았습니다. 감사합니다:) ");
     return 0;
 }
+```
 ----------------------------------------------------------------------------------------------------
 Flow Chart
 <img width="332" alt="급여 관리-flow chart" src="https://user-images.githubusercontent.com/91776093/144868432-12e1e682-b983-4c5c-a9ee-527b40d93bad.png">
