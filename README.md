@@ -110,4 +110,5 @@ int output(struct employee data[], int tot_employee) //직원 데이터 출력 �
 }
 ----------------------------------------------------------------------------------------------------
 Flow Chart
-![image](https://user-images.githubusercontent.com/91776093/144867819-323f52ea-88bb-4d4b-9e1d-6bfff745acb1.png)
+<img width="332" alt="급여 관리-flow chart" src="https://user-images.githubusercontent.com/91776093/144868432-12e1e682-b983-4c5c-a9ee-527b40d93bad.png">
+
