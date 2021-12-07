@@ -20,6 +20,8 @@ int calc_pay(struct employee data[], int total_employee);
 int sort_data(struct employee data[], int total_employee);
 //최종 출력을 표시하기 위한 함수
 int output(struct employee data[], int tot_employee);
+//가장 많이 일한 사람을 찾기 위한 함수
+int find_high(struct employee[], int total_employee);
 //시급을 나타낼 인자 언급
 int pay ;
 
@@ -31,7 +33,11 @@ int main()
     struct employee data[MAX];
     tot_employee = input(data); //input함수로부터 입력된 총 직원 수를 리턴
     total_pay = calc_pay(data, tot_employee); //calc_pay함수로부터 지불해야 할 월급 리턴
-    output(data, tot_employee); //output함수로부터 결과 출력
+
+    high =find_high(data, tot_employee); //high함수로부터 최장근무자 출력
+    output(data, tot_employee); //output함수로부터 최종 결과 출력
+    printf("가장 많이 근무한 사람은 %s입니다.\n",data[high].name);
+    printf("그리고 이번달에 보너스가 지급될 예정입니다.");   
     printf(" 총 직원 수 : %d명\n", tot_employee);
     return 0;
 }
@@ -41,7 +47,7 @@ int input(struct employee data[]) //입력 함수
     int i;
     int pay=8720; //시급 정의
     printf("# 데이터를 입력하세요(이름, 전화번호, 이번 달 근무시간 합--> 순차적으로 출력되므로 순서에 맞게 입력하세요.)\n");
-    printf("# 최대 %03d개의 데이터를 입력할 수 있습니다.\n ", MAX);
+    printf("# 최대 %03d개의 데이터를 입력할 수 있습니다.\n", MAX);
     printf("# 이름에 공백(Space)입력 금지");
     printf("# finish 입력 시 입력은 종료가 되며 이후 결과가 출력됩니다.\n");
     printf("# 2021년 최저 시급 : %5d원\n", pay);
@@ -92,6 +98,22 @@ int sort_data(struct employee data[], int tot_employee) //내림차순 정렬 �
         }
     }
     return 0;
+}
+
+int find_high(struct employee data[], int total_employee)
+{
+        int i;
+        int high = 0;
+        int high_pay = 0;
+        for (i=0; i < total_employee; i++)
+        {
+                if (data[i].pay > high_pay)
+                {
+                        high_pay = data[i].pay;
+                        high = i;
+                }
+        }
+        return high;
 }
 
 int output(struct employee data[], int tot_employee) //직원 데이터 출력 함수
