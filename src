@@ -1,4 +1,4 @@
-```c
+
 #include <stdio.h>
 #define MAX 10
 
@@ -125,4 +125,4 @@ int output(struct employee data[], int tot_employee)
     printf("이번달도 모두 고생 많았습니다. 감사합니다:) ");
     return 0;
 }
-```
+
