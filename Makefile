@@ -1,16 +1,26 @@
-wage.o : input.o calc_pay.o sort_data.o output.o main.o
-  gcc -o wage.o input.o calc_pay.o sort_data.o output.o main.o
+# specify all source files here
+SRCS = wage.c
+
+# specify target here (name of executable)
+TARG = wage
+
+# specify comiler
+CC = gcc
+
+# this translates.c files in src list to .o's
+OBJS = $(wage.c = wage.o)
+
+# all is not really needed, but is used to generate the target
+all: $ wage
+
+# this generates the target executable
+$ wage : $ wage.c
+  $ gcc -o $ wage $ wage.c
   
-input.o : input.c
-  gcc -c -o input.o input.c
-calc_pay.o : calc_pay.c
-  gcc -c -o calc_pay.o calc_pay.c
- sort_data.o : sort_data.c
-  gcc -c -o sort_data.o sort_data.c
- output.o : output.c
-  gcc -c -o output.o output.c
- main.o : main.c
-  gcc -c -o main.o main.c
+# this si  generic rule for .o files
+%.o: %.c
+  $ gcc -c $< -o $@
   
-  clean :
-   rm *.o wage.o
+# and finally, a clean line
+clean:
+  rm -f wage.o wage.c
